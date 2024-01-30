@@ -1,33 +1,14 @@
-import { createStore } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 
-const initialState = { counter: 0, showCounter: true };
+import counterReducer from './counter';
+import authReducer from './auth';
 
-const counterReducer = (state = initialState, action) => {
-
-    if ('increment' === action.type) {
-        return {
-            counter: state.counter + action.payload,
-            showCounter: state.showCounter
-        };
+// configureStore will call one time only.
+const store = configureStore({
+    reducer: {
+        counter: counterReducer,
+        auth: authReducer
     }
-
-    if ('decrement' === action.type) {
-        return {
-            counter: state.counter - action.payload,
-            showCounter: state.showCounter
-        };
-    }
-
-    if ('toggle' === action.type) {
-        return {
-            counter: state.counter,
-            showCounter: !state.showCounter
-        }
-    }
-
-    return state;
-};
-
-const store = createStore(counterReducer);
+});
 
 export default store;
