@@ -9,7 +9,7 @@ const counterSlice = createSlice({
         increment(state, action) {
             state.counter = state.counter + action.payload;
         },
-        decrement(state) {
+        decrement(state, action) {
             state.counter = state.counter - action.payload;
         },
         toggleCounter(state) {
@@ -26,5 +26,7 @@ const store = configureStore({
     //     other: other.reducer
     // }
 });
+
+export const counterActions = counterSlice.actions;
 
 export default store;
