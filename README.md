@@ -1,4 +1,4 @@
-## React + Redux or Redux Toolkit
+## React + Redux Toolkit
 
 ### This project contains:
 - How to configure the Redux with the React project.
